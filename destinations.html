@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สถานที่ท่องเที่ยว | ยะลา มนต์เสน่ห์แห่งขุนเขา</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-dark: #0a1f1a;
+            --accent-gold: #c5a059;
+            --bg-cream: #f9f7f2;
+            --text-main: #2c3e50;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+
+        /* --- Navbar (ยึดตามหน้าแรก) --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: var(--primary-dark);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span { color: var(--accent-gold); }
+
+        .nav-links { display: flex; list-style: none; gap: 35px; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+
+        /* --- Page Header --- */
+        .page-header {
+            padding: 180px 8% 80px;
+            background: linear-gradient(rgba(10, 31, 26, 0.7), rgba(10, 31, 26, 0.7)), 
+                        url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 { font-size: 4rem; color: var(--accent-gold); margin-bottom: 10px; }
+        .page-header p { font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; }
+
+        /* --- Destinations Filter/Grid --- */
+        .destination-container { padding: 80px 8%; }
+
+        .section-intro { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-intro h2 { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 20px; }
+        .section-intro p { color: #7f8c8d; }
+
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .dest-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .dest-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .dest-img-box {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dest-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .dest-card:hover .dest-img-box img { transform: scale(1.1); }
+
+        .dest-info { padding: 30px; }
+        .dest-info .category { 
+            color: var(--accent-gold); 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .dest-info h3 { font-size: 1.8rem; margin: 10px 0; color: var(--primary-dark); }
+        .dest-info p { font-size: 0.95rem; color: #666; margin-bottom: 20px; }
+
+        .btn-more {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .dest-card:hover .btn-more {
+            background: var(--accent-gold);
+            color: var(--white);
+        }
+
+        /* --- Footer (ยึดตามหน้าแรก) --- */
+        footer { background: var(--primary-dark); color: var(--white); padding: 60px 8%; text-align: center; }
+        .footer-logo { font-size: 2rem; font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-bottom: 20px; }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 3rem; }
+            .dest-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">YALA<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">หน้าแรก</a></li>
+            <li><a href="yala-info.html">ข้อมูลจังหวัด</a></li>
+            <li><a href="#" class="active">สถานที่ท่องเที่ยว</a></li>
+            <li><a href="#">ติดต่อเรา</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <p>Curated Experiences</p>
+        <h1>ที่เที่ยวห้ามพลาด</h1>
+    </header>
+
+    <main class="destination-container">
+        <div class="section-intro">
+            <h2>เปิดมุมมองใหม่ ณ ยะลา</h2>
+            <p>สัมผัสความสวยงามของธรรมชาติที่ยังบริสุทธิ์และร่องรอยประวัติศาสตร์ที่ทรงคุณค่า ผ่านสถานที่ท่องเที่ยวที่เราคัดสรรมาให้คุณเป็นพิเศษ</p>
+        </div>
+
+        <div class="dest-grid">
+            <div class="dest-card">
+                <div class="dest-img-box">
+                    <img src="https://thailandtourismdirectory.go.th/assets/upload/2020/11/04/2020110438250005d5395562d9494379a25b30349479b1.jpg" alt="Skywalk">
+                </div>
+                <div class="dest-info">
+                    <span class="category">Adventure & View</span>
+                    <h3>สกายวอร์ค อัยเยอร์เวง</h3>
+                    <p>สัมผัสทางเดินกระจกที่ยาวที่สุดในอาเซียน พร้อมวิวทะเลหมอกที่สวยงามที่สุดในภาคใต้</p>
+                    <a href="#" class="btn-more">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="dest-card">
+                <div class="dest-img-box">
+                    <img src="https://images.unsplash.com/photo-1589908431cf0-0e129188d374?q=80&w=1000&auto=format&fit=crop" alt="Hala Bala">
+                </div>
+                <div class="dest-info">
+                    <span class="category">Nature & Wildlife</span>
+                    <h3>ป่าฮาลา-บาลา</h3>
+                    <p>ผืนป่าที่ได้รับฉายาว่า "อเมซอนแห่งเอเชีย" แหล่งอาศัยของนกเงือกหลากหลายสายพันธุ์</p>
+                    <a href="#" class="btn-more">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="dest-card">
+                <div class="dest-img-box">
+                    <img src="https://thailandtourismdirectory.go.th/assets/upload/2017/11/20/20171120e365851480f8373b88b49e49e29a8f4c102220.jpg" alt="Piyamit Tunnel">
+                </div>
+                <div class="dest-info">
+                    <span class="category">History & Culture</span>
+                    <h3>อุโมงค์ปิยะมิตร</h3>
+                    <p>ร่องรอยทางประวัติศาสตร์ของผู้ร่วมพัฒนาชาติไทย ท่ามกลางบรรยากาศป่าเขาอันร่มรื่น</p>
+                    <a href="#" class="btn-more">ดูรายละเอียด</a>
+                </div>
+            </div>
+
+            <div class="dest-card">
+                <div class="dest-img-box">
+                    <img src="https://palanla.com/img_imp/imp_source/Winter%20Flower%20Garden1.jpg" alt="Flower Garden">
+                </div>
+                <div class="dest-info">
+                    <span class="category">Relax & Leisure</span>
+                    <h3>สวนหมื่นบุปผา</h3>
+                    <p>ชมความงามของดอกไม้เมืองหนาวนานาพันธุ์ท่ามกลางอากาศเย็นสบายตลอดปีที่เบตง</p>
+                    <a href="#" class="btn-more">ดูรายละเอียด</a>
+                </div>
+            </div>
+            
+            <div class="dest-card">
+                <div class="dest-img-box">
+                    <img src="https://travel.mthai.com/app/uploads/2014/10/Betong-10.jpg" alt="Clock Tower">
+                </div>
+                <div class="dest-info">
+                    <span class="category">City Life</span>
+                    <h3>หอนาฬิกาเบตง</h3>
+                    <p>แลนด์มาร์คใจกลางเมืองเบตง ชมฝูงนกนางแอ่นนับหมื่นตัวในช่วงยามเย็น</p>
+                    <a href="#" class="btn-more">ดูรายละเอียด</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">YALA<span>.</span></div>
+        <p>เสน่ห์ที่ต้องสัมผัสด้วยตาตนเอง... ยะลา</p>
+        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">&copy; 2024 Yala Luxury Tourism. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
