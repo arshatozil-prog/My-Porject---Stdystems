@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลจังหวัดยะลา | ยะลาใต้สุดแดนสยาม</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-dark: #0a1f1a;
+            --accent-gold: #c5a059;
+            --bg-cream: #f9f7f2;
+            --text-main: #2c3e50;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+
+        /* --- Navbar (คงเดิมจากหน้า index) --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: var(--primary-dark); /* หน้าข้อมูลให้พื้นหลังเข้มเพื่อความชัดเจน */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span { color: var(--accent-gold); }
+
+        .nav-links { display: flex; list-style: none; gap: 35px; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* --- Header Section --- */
+        .info-header {
+            padding: 180px 8% 100px;
+            background: linear-gradient(rgba(10, 31, 26, 0.8), rgba(10, 31, 26, 0.8)), 
+                        url('https://images.unsplash.com/photo-1589908431cf0-0e129188d374?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .info-header h1 { font-size: 4rem; margin-bottom: 20px; color: var(--accent-gold); }
+        .info-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; opacity: 0.9; font-weight: 300; }
+
+        /* --- Content Section --- */
+        .container { padding: 80px 8%; max-width: 1200px; margin: 0 auto; }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .content-text h2 { font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 25px; border-left: 5px solid var(--accent-gold); padding-left: 20px; }
+        .content-image { border-radius: 30px; overflow: hidden; box-shadow: 20px 20px 0px var(--accent-gold); }
+        .content-image img { width: 100%; display: block; transition: transform 0.5s; }
+        .content-image:hover img { transform: scale(1.05); }
+
+        /* --- Identity Cards (Infographic) --- */
+        .identity-section { background: var(--white); padding: 80px 8%; text-align: center; }
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .id-card {
+            padding: 40px;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .id-card:hover { border-color: var(--accent-gold); background: var(--bg-cream); }
+        .id-card i { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 20px; }
+        .id-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary-dark); }
+
+        /* --- Footer --- */
+        footer { background: var(--primary-dark); color: var(--white); padding: 60px 8%; text-align: center; }
+        .footer-logo { font-size: 2rem; font-family: 'Cormorant Garamond', serif; color: var(--accent-gold); margin-bottom: 20px; }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .info-header h1 { font-size: 2.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">YALA<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">หน้าแรก</a></li>
+            <li><a href="#" style="color: var(--accent-gold);">ข้อมูลจังหวัด</a></li>
+            <li><a href="index.html#destinations">สถานที่ท่องเที่ยว</a></li>
+            <li><a href="#">ติดต่อเรา</a></li>
+        </ul>
+    </nav>
+
+    <header class="info-header">
+        <h1>อัตลักษณ์แห่งยะลา</h1>
+        <p>จังหวัดที่รุ่มรวยด้วยอารยธรรม พหุวัฒนธรรม และความมหัศจรรย์ของผังเมืองระดับโลก</p>
+    </header>
+
+    <div class="container">
+        <section class="content-grid">
+            <div class="content-text">
+                <h2>ประวัติและความเป็นมา</h2>
+                <p>ยะลา มาจากภาษามลายูว่า "ยาลอ" (Jala) ซึ่งหมายถึง "แห" เป็นจังหวัดที่ตั้งอยู่ใต้สุดของประเทศไทย มีประวัติศาสตร์อันยาวนานตั้งแต่สมัยอาณาจักรลังกาสุกะ</p>
+                <p style="margin-top: 15px;">โดดเด่นในฐานะเมืองที่มีการจัดวางผังเมืองเป็นระเบียบสวยงามเป็นรูปใยแมงมุม จนได้รับคำชมว่าเป็นหนึ่งในผังเมืองที่ดีที่สุดในโลก ผสมผสานความเป็นอยู่ของชาวไทยพุทธ มุสลิม และจีน อย่างสันติสุข</p>
+            </div>
+            <div class="content-image">
+                <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop" alt="Yala City Plan">
+            </div>
+        </section>
+
+        <section class="identity-section">
+            <h2 style="font-size: 2.5rem; color: var(--primary-dark);">สัญลักษณ์ประจำจังหวัด</h2>
+            <div class="identity-grid">
+                <div class="id-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>ตราประจำจังหวัด</h3>
+                    <p>รูปเหมืองดีบุกและคนขุดดีบุก สื่อถึงทรัพยากรธรรมชาติอันรุ่งเรืองในอดีต</p>
+                </div>
+                <div class="id-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>ดอกไม้ประจำจังหวัด</h3>
+                    <p>ดอกพิกุล (Mimusops elengi) ดอกไม้สีขาวนวลที่มีกลิ่นหอมเย็นรื่นรมย์</p>
+                </div>
+                <div class="id-card">
+                    <i class="fas fa-tree"></i>
+                    <h3>ต้นไม้ประจำจังหวัด</h3>
+                    <p>ต้นศรียะลา (Saraca declinata) หรืออโศกเหลือง สัญลักษณ์แห่งความอุดมสมบูรณ์</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-grid" style="margin-top: 100px;">
+            <div class="content-image" style="box-shadow: -20px 20px 0px var(--accent-gold); order: 2;">
+                <img src="https://images.unsplash.com/photo-1589908431cf0-0e129188d374?q=80&w=800&auto=format&fit=crop" alt="Yala Geography">
+            </div>
+            <div class="content-text" style="order: 1;">
+                <h2>ลักษณะภูมิศาสตร์</h2>
+                <p>ยะลาเป็นจังหวัดเดียวในภาคใต้ที่ไม่ติดทะเล แต่ถูกทดแทนด้วยเทือกเขาสันกาลาคีรีและป่าฮาลา-บาลาอันอุดมสมบูรณ์ ทำให้อากาศที่นี่เย็นสบายและมีหมอกปกคลุมเกือบตลอดทั้งปี</p>
+                <p style="margin-top: 15px;">ด้วยสภาพพื้นที่ที่เป็นหุบเขาและป่าดงดิบชื้น ทำให้ยะลาเป็นแหล่งกำเนิดของแม่น้ำสายสำคัญและมีความหลากหลายทางชีวภาพที่สูงมาก จนได้รับฉายาว่า "อเมซอนแห่งอาเซียน"</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-logo">YALA<span>.</span></div>
+        <p>เสน่ห์ที่ต้องสัมผัสด้วยตาตนเอง... ยะลา</p>
+        <div style="margin-top: 30px; font-size: 1.5rem;">
+            <i class="fab fa-facebook" style="margin: 0 15px; color: var(--accent-gold);"></i>
+            <i class="fab fa-instagram" style="margin: 0 15px; color: var(--accent-gold);"></i>
+        </div>
+        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">&copy; 2024 Yala Luxury Tourism. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
